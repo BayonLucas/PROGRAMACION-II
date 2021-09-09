@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\source\\repos\\23-ConversorBinario\\23-ConversorBinario\\23-ConversorBinario.csproj",
-      "projectName": "23-ConversorBinario",
-      "projectPath": "C:\\Users\\pedro\\source\\repos\\23-ConversorBinario\\23-ConversorBinario\\23-ConversorBinario.csproj",
+      "projectUniqueName": "C:\\Users\\pedro\\source\\repos\\23-ConversorBinario\\23-ConversorBinario\\22-ConversorBinario.csproj",
+      "projectName": "22-ConversorBinario",
+      "projectPath": "C:\\Users\\pedro\\source\\repos\\23-ConversorBinario\\23-ConversorBinario\\22-ConversorBinario.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\pedro\\source\\repos\\23-ConversorBinario\\23-ConversorBinario\\obj\\",
       "projectStyle": "PackageReference",
