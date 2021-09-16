@@ -45,7 +45,7 @@ namespace Billetin
         #endregion
         public static void SetCotizacion(double c)
         {
-            Pesos.cotizRespectoDolar = c;
+            cotizRespectoDolar = c;
         }
         public static implicit operator Pesos(double d)
         {

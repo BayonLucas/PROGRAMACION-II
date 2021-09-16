@@ -30,6 +30,7 @@ c           con total normalidad como si fueran tipos numéricos,
             bool esIgual = (cliente4 == cliente5);
             //if(esIgual = cliente4== cliente5)
             Console.WriteLine("transaccion5 = {0}", esIgual);
+            Console.ReadKey();
         }
     }
 }

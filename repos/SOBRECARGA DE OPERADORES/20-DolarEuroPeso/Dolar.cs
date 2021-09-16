@@ -64,7 +64,7 @@ namespace Billetin
         #region Dolar == Euro
         public static bool operator == (Dolar d, Euro e)
         {
-            if (d == ((Dolar)e).GetCantidad())
+            if (d == ((Dolar)e))
             {
                 return true;
             }

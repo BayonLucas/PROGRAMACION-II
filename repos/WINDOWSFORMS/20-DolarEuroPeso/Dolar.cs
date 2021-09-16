@@ -108,7 +108,7 @@ namespace Billetin
         #region Dolar == Dolar
         public static bool operator == (Dolar d, Dolar e)
         {
-            if (d.cantidad == e.cantidad)
+            if (d == e)
             {
                 return true;
             }

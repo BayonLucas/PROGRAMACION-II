@@ -24,7 +24,7 @@ namespace _22_ConversorBinario
         }
         public static implicit operator double(NumeroDecimal d)
         {
-            return d.numero;
+             return d.numero;
         }
         #region SOBRECARGA DECIMAL>>>BINARIO
         public static explicit operator NumeroBinario(NumeroDecimal nD)

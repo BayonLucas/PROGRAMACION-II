@@ -13,7 +13,7 @@ namespace Billetin
         #region Constructores
         static Euro()
         {
-            cotizRespectoDolar = 1.18;
+            cotizRespectoDolar = 1.08;
         }
         public Euro(double cantidad)
         {
