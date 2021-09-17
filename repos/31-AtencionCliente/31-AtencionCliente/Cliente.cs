@@ -10,13 +10,17 @@ namespace _31_AtencionCliente
     {
         private string nombre;
         private int numero;
-
-        public Cliente(string nombre, int numero)
+        #region Constructores
+        public Cliente(int numero)
         {
-            this.Nombre = nombre;
-            this.Numero = numero;
+            this.numero = numero;
         }
-
+        public Cliente(string nombre, int numero):this(numero)
+        {            
+            this.Nombre = nombre;
+        }
+        #endregion
+        #region Propiedades
         public string Nombre 
         {
             get
@@ -27,12 +31,35 @@ namespace _31_AtencionCliente
             {
                 if(string.IsNullOrEmpty(value))
                 {
-                    nombre = value;
+                    this.nombre = value;
                 }
                  
-            }
-        
+            }        
         }
-        public int Numero { get => numero; set => numero = value; }
+        public int Numero
+        {
+            get
+            {
+                return numero;
+            }           
+        }
+        #endregion
+        #region Sobrecargas == & !=
+        public static bool operator ==(Cliente c1, Cliente c2)
+        {
+            if(c1.Numero == c2.Numero)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator !=(Cliente c1,Cliente c2)
+        {
+            return !(c1 == c2);
+        }
+
+        #endregion
+
+
     }
 }
