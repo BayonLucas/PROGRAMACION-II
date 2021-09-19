@@ -7,7 +7,7 @@ namespace _36_Ejercicio
         static void Main(string[] args)
         {
             Random azar = new Random();
-            Competencia formulaUno = new Competencia(10, 20, Competencia.ETipoCompetencia.F1);
+            Competencia formulaUno = new Competencia(10, 20, Competencia.tipoCompetencia.F1);
             AutoF1[] autos = new AutoF1[10];
 
             for (int i = 0; i < autos.Length; i++)

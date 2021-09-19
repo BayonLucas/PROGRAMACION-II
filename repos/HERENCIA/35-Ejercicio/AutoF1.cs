@@ -35,7 +35,7 @@ namespace _36_Ejercicio
         }
         #endregion
         #region Mostrar Datos
-        public string MostrarDatos()
+        new public string MostrarDatos()
         {            
             return base.MostrarDatos() +this.CaballosDeFuerza.ToString();
         }

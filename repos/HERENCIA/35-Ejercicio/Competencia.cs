@@ -13,7 +13,7 @@ namespace _36_Ejercicio
         private short cantidadVueltas;
         private List<VehiculoDeCarrera> competidores;
         private tipoCompetencia tipo;
-
+        #region Constructores
         private Competencia()
         {
             this.competidores = new List<VehiculoDeCarrera>();
@@ -26,6 +26,7 @@ namespace _36_Ejercicio
                 this.CantidadCompetidores = cantidadCompetidores;
             }
         }
+        #endregion
         #region Propiedades
         public short CantidadCompetidores
         {
@@ -70,33 +71,28 @@ namespace _36_Ejercicio
             }
         }
         #endregion
+        #region MostrarDatos
         public string MostrarDatos()
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine($"Cantidad de vueltas en la competencia: {this.CantidadVueltas}");
             stringBuilder.AppendLine($"Cantidad de competidores: {this.CantidadCompetidores}");
             //Imprimimos luego todos los competidores
-            if (this.Tipo == tipoCompetencia.F1)
+            foreach (VehiculoDeCarrera item in this.competidores)
             {
-                foreach (AutoF1 item in this.competidores)
+                if(item.GetType() == typeof(AutoF1))
                 {
-                    stringBuilder.AppendLine(item.MostrarDatos());
-                    stringBuilder.AppendLine(item.MostrarDatos());
+                    stringBuilder.AppendLine(((AutoF1)item).MostrarDatos());
+                }
+                else if (item.GetType() == typeof(MotoCross))
+                {
+                    stringBuilder.AppendLine(((MotoCross)item).MostrarDatos());                    
                 }
             }
-            else
-            {
-                if (this.Tipo == tipoCompetencia.MotoCross)
-                {
-                    foreach (MotoCross item in this.competidores)
-                    {
-                        stringBuilder.AppendLine(item.MostrarDatos());
-                        stringBuilder.AppendLine(item.MostrarDatos());
-                    }
-                }
-            }
+            
             return stringBuilder.ToString();
         }
+        #endregion
         #region Sobrecarga - & + (agregar/quitar competidores a la competencia)
         public static bool operator -(Competencia c, VehiculoDeCarrera v)
         {
@@ -131,30 +127,20 @@ namespace _36_Ejercicio
                 Colocar dicha comparación dentro del == de la clase Competencia.      
              */
             //Comparo el tipo de competencia con el tipo de vehiculo
-            //                    == VehiculoDeCarrera            
-            bool aux = c.Tipo.Equals(competidor);
-
-            /*
-            if (c.Tipo.ToString() == competidor.GetType().ToString())
+            //                    == VehiculoDeCarrera 
+            if ((c.Tipo == tipoCompetencia.F1 && (competidor.GetType() == typeof(AutoF1))) ||
+                    (c.Tipo == tipoCompetencia.MotoCross && (competidor.GetType() == typeof(MotoCross))))
             {
-
-            }
-            else
-            {
-                if(c.Tipo == tipoCompetencia.MotoCross)
+                foreach (VehiculoDeCarrera item in c.competidores)
                 {
-
+                    if (item == competidor)
+                    {
+                        return true;
+                    }
                 }
-            }
-            foreach (VehiculoDeCarrera item in c.competidores)
-            {
-                if(item == competidor) //Si el competidor se encuentra o no en la competeencia
-                {
-                    return true;
-                }
-            }
-            */
-            return false;
+                return false;
+            }            
+            return true;       //Si no coincide el tipo de competencia con el tipo de vehiculo, retorna true
         }
         public static bool operator !=(Competencia c, VehiculoDeCarrera v)
         {
