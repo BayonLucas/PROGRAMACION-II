@@ -29,7 +29,7 @@ namespace _31_AtencionCliente
             }
             set
             {
-                if(string.IsNullOrEmpty(value))
+                if(!string.IsNullOrEmpty(value))
                 {
                     this.nombre = value;
                 }

@@ -6,10 +6,5 @@ using System.Threading.Tasks;
 
 namespace _31_AtencionCliente
 {
-    public class PuestoAtencion
-    {
-        public enum Puesto {Caja1, Caja2 }
-        private int numeroActual;
-        private Puesto puesto;
-    }
+    public enum Puesto { Caja1,Caja2};
 }
