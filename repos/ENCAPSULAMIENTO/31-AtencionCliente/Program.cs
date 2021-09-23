@@ -35,10 +35,11 @@ namespace _31_AtencionCliente
             {
                 Console.WriteLine("El cliente 3 esta esperando ser atendido en {0}", tienda1.Nombre);
             }
-            while(tienda1.ClientesPendientes > 0)
+
+            while(~tienda1)
             {
                 Console.WriteLine("Todavía hay {0} clientes esperando ser atendido en {0}", tienda1.Nombre);
-            }
+            }            
             Console.WriteLine("Ya no hay clientes en {0}", tienda1.Nombre);
             Console.ReadKey();
         }

@@ -23,7 +23,7 @@ namespace _31_AtencionCliente
         }
         #endregion
         #region Propiedades
-        public int NumeroActual 
+        public static int NumeroActual 
         {
             get
             {
@@ -39,7 +39,9 @@ namespace _31_AtencionCliente
         /// <returns> Retornará true para indicar el final de la atención.</returns>
         public bool Atender(Cliente cli)
         {
+
             System.Threading.Thread.Sleep(1000);
+
             return true;
         }
 

@@ -27,34 +27,16 @@ namespace _31_AtencionCliente
         {
             get
             {
-               return clientes.Peek();
+                if(clientes.Count > 0 )
+                {
+                    return clientes.Dequeue();
+                }
+                return null;
             }
             set
             {
-                bool clienteExiste = false;
-                foreach (Cliente item in this.clientes)
-                {
-                    if(item == value)
-                    {
-                        clienteExiste= true;
-                    }
-                }
-                if(clienteExiste == false)
-                {
-                    this.clientes.Enqueue(value);
-                }
-                /*this + value;         //No me lo acepta
-                 * 
-                 */
+                bool rta = (this + value);                 
             }
-        }
-        public int ClientesPendientes
-        {
-            get
-            {
-                return this.clientes.Count;
-            }
-        
         }
         public string Nombre
         {
@@ -86,7 +68,9 @@ namespace _31_AtencionCliente
         {
             if(n != c)
             {
+                int numeroActual;
                 n.clientes.Enqueue(c);
+                numeroActual = PuestoAtencion.NumeroActual;
                 return true;
             }
             return false;
@@ -96,15 +80,15 @@ namespace _31_AtencionCliente
         /// utilizando la propiedad Cliente y el método Atender de PuestoAtencion.
         /// </summary>
         /// <param name="n"></param>
-        /// <returns>Retornará True si
-        /// pudo realizar la operación completa.</returns>
+        /// <returns>Retornará True si pudo realizar la operación completa.</returns>
         public static bool operator ~(Negocio n)
-        {            
-            if(n.clientes.TryDequeue(out Cliente auxCliente) && n.caja.Atender(auxCliente))
+        {
+            Cliente auxCliente =  n.Cliente;
+            if(auxCliente is not null)
             {
-                return true;
+                return n.caja.Atender(auxCliente);
             }
-            return false;
+            return false;                       
         }
         #endregion
 
