@@ -8,6 +8,7 @@ namespace _34_EjercicioVehiculos
 {
     public class Automovil: VehiculoTerrestre
     {
+        
         private short cantidadMarchas;
         private short cantidadPasajeros;
 

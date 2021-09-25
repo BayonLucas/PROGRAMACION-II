@@ -14,7 +14,7 @@ namespace _34_EjercicioVehiculos
 
             foreach (VehiculoTerrestre item in vh)
             {
-                if(item.GetType() == typeof(Camion))
+                if (item.GetType() == typeof(Camion))
                 {
                     Console.WriteLine(((Camion)item).MostrarDatos());
                 }
