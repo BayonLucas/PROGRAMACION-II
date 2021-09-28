@@ -6,4 +6,8 @@
     <RootNamespace>_37_Centralita_Herencia</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CentralitaHerencia\Entidades.csproj" />
+  </ItemGroup>
+
 </Project>

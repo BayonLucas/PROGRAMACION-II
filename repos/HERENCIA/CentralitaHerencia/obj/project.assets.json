@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\source\\repos\\HERENCIA\\CentralitaHerencia\\CentralitaHerencia.csproj",
-      "projectName": "CentralitaHerencia",
-      "projectPath": "C:\\Users\\pedro\\source\\repos\\HERENCIA\\CentralitaHerencia\\CentralitaHerencia.csproj",
+      "projectUniqueName": "C:\\Users\\pedro\\source\\repos\\HERENCIA\\CentralitaHerencia\\Entidades.csproj",
+      "projectName": "Entidades",
+      "projectPath": "C:\\Users\\pedro\\source\\repos\\HERENCIA\\CentralitaHerencia\\Entidades.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\pedro\\source\\repos\\HERENCIA\\CentralitaHerencia\\obj\\",
       "projectStyle": "PackageReference",

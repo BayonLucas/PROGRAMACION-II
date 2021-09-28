@@ -4,26 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CentralitaHerencia
+namespace Entidades
 {
 
     public class Provincial : LLamada
     {
+        //g.El método Mostrar será protegido.                                           x
+        //Reutilizará el código escrito en la clase base y                              x
+        //agregará FranjaHoraria y CostoLlamada, utilizando un StringBuilder.           x
+        //h.Equals retornará true sólo si el objeto que recibe es de tipo Provincial.   x
+        //i.ToString reutilizará el código del método Mostrar.                          x
         //Franja_1: 0.99, Franja_2: 1.25 y Franja_3: 0.66.
-        public enum Franja { Franja_1 = (float)0.99, Franja_2 = (float)1.25, Franka_3 = (float)0.66 };
-        //public enum Franja {Franja_1 = 1, Franja_2= 2, Franka_3=3 };
+        public enum Franja { Franja_1, Franja_2, Franja_3 };
         protected Franja franjaHoraria;
         #region Constructores
-        public Provincial(string origen, Franja miFranja,float duracion,string destino) : base(duracion, destino, origen)
+        public Provincial(string origen, Franja miFranja, float duracion, string destino) 
+            : base(duracion, destino, origen)
         {
-                this.franjaHoraria = miFranja;
+            this.franjaHoraria = miFranja;
         }
-        public Provincial(LLamada llamada, Franja miFranja) : this(llamada.NroOrigen,miFranja, llamada.Duracion, llamada.NroDestino)
+        public Provincial(Franja miFranja, LLamada llamada) 
+            : this(llamada.NroOrigen, miFranja, llamada.Duracion, llamada.NroDestino)
         {
         }
         #endregion
         #region Propiedades
-        public float CostoLlamada
+        public override float CostoLlamada
         {
             get
             {
@@ -36,22 +42,36 @@ namespace CentralitaHerencia
         {
             switch (this.franjaHoraria)
             {
-                    case Franja.Franja_1:
-                        return this.Duracion * (float)0.99;
-                    case Franja.Franja_2:
-                        return this.Duracion * (float)1.25;
-                    case Franja.Franka_3:
-                        return this.Duracion * (float)0.66;
+                case Franja.Franja_1:
+                    return this.Duracion * (float)0.99;
+                case Franja.Franja_2:
+                    return this.Duracion * (float)1.25;
+                case Franja.Franja_3:
+                    return this.Duracion * (float)0.66;
             }
-                return 0;
+            return 0;
         }
-        public new string Mostrar()
+        protected override string Mostrar()
         {
             StringBuilder aux = new StringBuilder();
-            return ((aux.Append(base.Mostrar()).Append(this.franjaHoraria)).Append(this.CostoLlamada.ToString())).ToString();
+            aux.Append(base.Mostrar());
+            aux.Append(this.franjaHoraria);
+            aux.Append(this.CostoLlamada.ToString());
+            return aux.ToString();
         }
         #endregion
-
+        #region Override Equals()
+        public override bool Equals(object obj)
+        {
+            return (obj.GetType() == typeof(Provincial));
+        }
+        #endregion
+        #region Override ToString()
+        public override string ToString()
+        {
+            return this.Mostrar();
+        }
+        #endregion
 
     }
 }

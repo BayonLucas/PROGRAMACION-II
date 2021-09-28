@@ -4,27 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CentralitaHerencia
+namespace Entidades
 {
     public class Centralita
     {
-
-        //l.CalcularGanancia será privado.
-        //Este método recibe un Enumerado TipoLlamada y retornará el valor de lo recaudado,
-        //según el criterio elegido
-        //(ganancias por las llamadas del tipo Local,Provincial o de Todas según corresponda).
-
-        //m.El método Mostrar expondrá
-        //la razón social,
-        //la ganancia total,
-        //ganancia por llamados locales y provinciales y
-        //el detalle de las llamadas realizadas.
-
-        //n.La lista sólo se inicializará en el constructor por defecto Centralita().
-
-        //o.Las propiedades GananciaPorTotal, GananciaPorLocal y GananciaPorProvincial
-        //retornarán el precio de lo facturado según el criterio.
-        //Dichos valores se calcularán en el método CalcularGanancia().
+        //j.El método Mostrar pasará a ser privado y será llamado por la sobreescritura del método ToString.        x
+        //k.AgregarLlamada es privado. Recibe una Llamada y la agrega a la lista de llamadas.                       x
+        //l.El operador == retornará true si la Centralita contiene la Llamada en su lista genérica.                x
+        //Utilizar sobrecarga == de Llamada.                                                                        x
+        //m.El operador + invocará al método AgregarLlamada sólo si la llamada no está registrada en la Centralita  x       
+        //(utilizar la sobrecarga del operador == de Centralita).                                                   x
         public enum TipoLlamada { Local, Provincial };
         private List<LLamada> listaDeLLamadas;
         protected string razonSocial;
@@ -33,12 +22,12 @@ namespace CentralitaHerencia
         {
             this.listaDeLLamadas = new List<LLamada>();
         }
-        public Centralita(List<LLamada> listaDeLLamadas, string razonSocial) : this()
+        public Centralita(string razonSocial) : this()
         {
-            if(!string.IsNullOrWhiteSpace(razonSocial))
+            if (!string.IsNullOrWhiteSpace(razonSocial))
             {
                 this.razonSocial = razonSocial;
-            }            
+            }
         }
         #endregion    
         #region Propiedades
@@ -61,7 +50,7 @@ namespace CentralitaHerencia
         {
             get
             {
-                return this.CalcularGanancia(TipoLlamada.Provincial)+ this.CalcularGanancia(TipoLlamada.Local);
+                return this.CalcularGanancia(TipoLlamada.Provincial) + this.CalcularGanancia(TipoLlamada.Local);
             }
         }
         public List<LLamada> Llamadas
@@ -78,14 +67,14 @@ namespace CentralitaHerencia
             float auxTotalCosto = 0;
             foreach (LLamada item in this.Llamadas)
             {
-                if(tipo == TipoLlamada.Local)
+                if (tipo == TipoLlamada.Local)
                 {
-                    if(item.GetType() ==  typeof(Local))
+                    if (item.GetType() == typeof(Local))
                     {
                         auxTotalCosto += ((Local)item).CostoLlamada;
                     }
                 }
-                else if(tipo == TipoLlamada.Provincial)
+                else if (tipo == TipoLlamada.Provincial)
                 {
                     if (item.GetType() == typeof(Provincial))
                     {
@@ -95,31 +84,87 @@ namespace CentralitaHerencia
             }
             return auxTotalCosto;
         }
-        public string Mostrar()
+        /// <summary>
+        /// Recibe una Llamada y la agrega a la lista de llamadas. 
+        /// </summary>
+        /// <param name="nuevaLlamada"></param>
+        private void AgregarLlamada(LLamada nuevaLlamada)
+        {
+            this.Llamadas.Add(nuevaLlamada);
+        }
+        private string Mostrar()
         {
             StringBuilder aux = new StringBuilder();
-            aux.Append(this.razonSocial).Append(this.GananciasPorTotal).Append(this.GananciasPorLocal).Append(this.GananciasPorProvincial);
-            //modifcar
+            aux.AppendLine(string.Format(("Razon social : {0}"), this.razonSocial));
+            aux.AppendLine(string.Format("Ganancias por Total {0}", this.GananciasPorTotal));
+            aux.AppendLine(string.Format("Ganancias por Local{0}", this.GananciasPorLocal));
+            aux.AppendLine(string.Format("Ganacias por provincial{0}", this.GananciasPorProvincial));  
             foreach (LLamada item in this.Llamadas)
             {
-                if (item.GetType() == typeof(Provincial))
-                {
-                    aux.Append(((Provincial)item).Mostrar());
-                }
-                else if(item.GetType() == typeof(Local))
-                {
-                    aux.Append(((Local)item).Mostrar());
-                }
+                aux.AppendFormat("\nLLamada {0} {1}",item.GetType(), item.ToString());                
             }
             return aux.ToString();
         }
-
         public void OrdenarLLamadas()
         {
-                
-                this.Llamadas.Sort(LLamada.OrdenarPorDuracion);
+            this.Llamadas.Sort(LLamada.OrdenarPorDuracion);
         }
         #endregion
-
+        #region Sobrecarga == & !=
+        /// <summary>
+        ///El operador == retornará true si la Centralita contiene la Llamada en su lista genérica.
+        ///Utiliza sobrecarga == de Llamada.
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="llamada"></param>
+        /// <returns></returns>
+        public static bool operator ==(Centralita c, LLamada llamada)
+        {
+            foreach (LLamada item in c.Llamadas)
+            {
+                if(item == llamada)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        /// <summary>
+        ///El operador != retornará false si la Centralita contiene la Llamada en su lista genérica.
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="llamada"></param>
+        /// <returns></returns>
+        public static bool operator !=(Centralita c, LLamada llamada)
+        {
+            return !(c == llamada);
+        }
+        #endregion
+        #region Sobrecarga + (Agregar Llamada)
+        /// <summary>
+        /// El operador + invocará al método AgregarLlamada sólo si la llamada no está registrada en la Centralita
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="nuevaLlamada"></param>
+        /// <returns>Retorna la centralita modificada o no</returns>
+        public static Centralita operator +(Centralita c, LLamada nuevaLlamada)
+        {
+            if(c != nuevaLlamada)
+            {
+                c.AgregarLlamada(nuevaLlamada);
+            }
+            return c;
+        }
+        #endregion
+        #region Override ToString()
+        /// <summary>
+        /// Invoca al metodo mostrar de Centralita
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.Mostrar();
+        }
+        #endregion
     }
 }
