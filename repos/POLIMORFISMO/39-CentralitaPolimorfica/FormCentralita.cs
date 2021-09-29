@@ -13,15 +13,16 @@ namespace _40_CentralitaPolimorfica
     
     public partial class FormMenu : Form
     {
-        public Centralita miCentralita = new Centralita();
+        public Centralita miCentralita;
         public FormMenu()
         {
-            InitializeComponent();            
-        }
+            InitializeComponent();
+            miCentralita = new Centralita("Tuenti");
+    }
 
         private void btnGenerarLLamada_Click(object sender, EventArgs e)
         {
-
+            FormLlamador formLlamador = new FormLlamador(miCentralita);
         }
 
         private void btnFacturacionTotal_Click(object sender, EventArgs e)

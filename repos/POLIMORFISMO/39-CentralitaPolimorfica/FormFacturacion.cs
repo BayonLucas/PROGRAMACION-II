@@ -18,7 +18,9 @@ namespace _40_CentralitaPolimorfica
         {
             InitializeComponent();
             this.CriterioFacturacion = criterioTipoLlamada;
+            auxCentralita = new Centralita();
             auxCentralita = miCentralita;
+
         }
         #region Propiedades
         public LLamada.TipoLlamada CriterioFacturacion 
@@ -27,17 +29,17 @@ namespace _40_CentralitaPolimorfica
             {
                 if (value == Entidades.LLamada.TipoLlamada.Local)
                 {
-                    rtxtbFacturacion.Text = auxCentralita.GananciasPorTotal.ToString();
+                    rtxtbFacturacion.Text = (auxCentralita.GananciasPorTotal).ToString();
                     rtxtbFacturacion.AppendText("Local");
                 }
                 else if (value == Entidades.LLamada.TipoLlamada.Provincial)
                 {
-                    rtxtbFacturacion.Text = auxCentralita.GananciasPorProvincial.ToString();
+                    rtxtbFacturacion.Text = (auxCentralita.GananciasPorProvincial).ToString();
                     rtxtbFacturacion.AppendText("provincial");
                 }
                 else
                 {
-                    rtxtbFacturacion.Text = auxCentralita.GananciasPorTotal.ToString();
+                    rtxtbFacturacion.Text.Insert(0, auxCentralita.GananciasPorTotal.ToString());
                     rtxtbFacturacion.AppendText("Total");
                 }
             }
