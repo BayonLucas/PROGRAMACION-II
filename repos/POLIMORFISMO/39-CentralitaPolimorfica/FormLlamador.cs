@@ -12,34 +12,67 @@ namespace _40_CentralitaPolimorfica
 {
     public partial class FormLlamador : Form
     {
-        // Carga
-        cmbFranja.DataSource = Enum.GetValues(typeof(Franjas));
-        // Lectura
-        Franjas franjas;
-        Enum.TryParse<Franjas>(cmbFranja.SelectedValue.ToString(), out franjas);
-        Centralita miCentralita;
+
+        
+        private Centralita centralita;
         public FormLlamador(Centralita auxCentralita)
         {
             InitializeComponent();
-            miCentralita = auxCentralita;
+            this.centralita = auxCentralita;
+        }
+        public Centralita Centralita
+        {
+            get
+            {
+                return this.centralita;
+            }
         }
 
         private void FormLlamador_Load(object sender, EventArgs e)
         {
-
+            // Carga
+            cmbFranja.DataSource = Enum.GetValues(typeof(Provincial.Franja));
+            // Lectura
+            Provincial.Franja franjas;
+            Enum.TryParse<Provincial.Franja>(cmbFranja.SelectedValue.ToString(), out franjas);
         }
-
         private void btnLlamar_Click(object sender, EventArgs e)
         {
             Random auxRandom = new Random();
             float auxDuracion = auxRandom.Next(1,50);
-            //Si la llamada comienza con #, es Provincial.
-            Provincial.Franja auxFranja = cmbFranja.SelectedText;
             LLamada auxLlamada;
-            if (txtNroDestino.Text.First() == '#')       
+            //Si la llamada comienza con #, es Provincial.
+            Provincial.Franja auxFranja;
+            if(!String.IsNullOrWhiteSpace(txtNroDestino.Text))
             {
-                auxLlamada = new Provincial(txtNroOrigen.Text, cmbFranja., auxDuracion, txtNroDestino.Text);
+                if (txtNroDestino.Text.First() == '#')       
+                {
+                    auxLlamada = new Provincial(this.txtNroOrigen.Text, 
+                        (Provincial.Franja)cmbFranja.SelectedItem,
+                        auxDuracion, this.txtNroDestino.Text);  
+                }
+                else
+                {
+                    //Es local
+                    float costo = auxRandom.Next(5, 56);
+                    costo /= 100;                
+                    cmbFranja.Enabled = false;
+                    auxLlamada = new Local(this.txtNroOrigen.Text, auxDuracion, this.txtNroDestino.Text,costo);
+                }
+                centralita += auxLlamada;
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.txtNroDestino.Clear();
+            this.txtNroOrigen.Clear();
+            this.cmbFranja.SelectedItem = 0;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

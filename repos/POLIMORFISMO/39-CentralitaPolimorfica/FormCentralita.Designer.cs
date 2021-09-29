@@ -64,6 +64,7 @@ namespace _40_CentralitaPolimorfica
             this.btnFacturacionLocal.TabIndex = 2;
             this.btnFacturacionLocal.Text = "Facturación Local";
             this.btnFacturacionLocal.UseVisualStyleBackColor = true;
+            this.btnFacturacionLocal.Click += new System.EventHandler(this.btnFacturacionLocal_Click);
             // 
             // btnFacturacionProvincial
             // 
@@ -73,6 +74,7 @@ namespace _40_CentralitaPolimorfica
             this.btnFacturacionProvincial.TabIndex = 3;
             this.btnFacturacionProvincial.Text = "Facturación Provincial";
             this.btnFacturacionProvincial.UseVisualStyleBackColor = true;
+            this.btnFacturacionProvincial.Click += new System.EventHandler(this.btnFacturacionProvincial_Click);
             // 
             // btnSalir
             // 

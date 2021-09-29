@@ -23,11 +23,24 @@ namespace _40_CentralitaPolimorfica
         private void btnGenerarLLamada_Click(object sender, EventArgs e)
         {
             FormLlamador formLlamador = new FormLlamador(miCentralita);
+            formLlamador.Show();
         }
 
         private void btnFacturacionTotal_Click(object sender, EventArgs e)
         {
-            FormFacturacion formFacturacion = new FormFacturacion(miCentralita, Entidades.LLamada.TipoLlamada.Todas);
+            FormMostrar formFacturacion = new FormMostrar(miCentralita, Entidades.LLamada.TipoLlamada.Todas);
+            formFacturacion.Show();
+        }
+
+        private void btnFacturacionLocal_Click(object sender, EventArgs e)
+        {
+            FormMostrar formFacturacion = new FormMostrar(miCentralita, Entidades.LLamada.TipoLlamada.Local);
+            formFacturacion.Show();
+        }
+
+        private void btnFacturacionProvincial_Click(object sender, EventArgs e)
+        {
+            FormMostrar formFacturacion = new FormMostrar(miCentralita, Entidades.LLamada.TipoLlamada.Provincial);
             formFacturacion.Show();
         }
     }

@@ -53,9 +53,10 @@ namespace _40_CentralitaPolimorfica
             // 
             // txtNroDestino
             // 
-            this.txtNroDestino.Location = new System.Drawing.Point(20, 12);
+            this.txtNroDestino.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNroDestino.Location = new System.Drawing.Point(12, 24);
             this.txtNroDestino.Name = "txtNroDestino";
-            this.txtNroDestino.Size = new System.Drawing.Size(558, 23);
+            this.txtNroDestino.Size = new System.Drawing.Size(558, 36);
             this.txtNroDestino.TabIndex = 0;
             this.txtNroDestino.Text = "Nro Destino";
             // 
@@ -142,7 +143,7 @@ namespace _40_CentralitaPolimorfica
             // 
             // btnLlamar
             // 
-            this.btnLlamar.Location = new System.Drawing.Point(347, 83);
+            this.btnLlamar.Location = new System.Drawing.Point(339, 117);
             this.btnLlamar.Name = "btnLlamar";
             this.btnLlamar.Size = new System.Drawing.Size(231, 181);
             this.btnLlamar.TabIndex = 9;
@@ -152,17 +153,18 @@ namespace _40_CentralitaPolimorfica
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(198, 54);
+            this.btnLimpiar.Location = new System.Drawing.Point(190, 88);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(121, 102);
             this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // cmbFranja
             // 
             this.cmbFranja.FormattingEnabled = true;
-            this.cmbFranja.Location = new System.Drawing.Point(20, 287);
+            this.cmbFranja.Location = new System.Drawing.Point(12, 321);
             this.cmbFranja.Name = "cmbFranja";
             this.cmbFranja.Size = new System.Drawing.Size(558, 23);
             this.cmbFranja.TabIndex = 12;
@@ -170,7 +172,7 @@ namespace _40_CentralitaPolimorfica
             // 
             // txtNroOrigen
             // 
-            this.txtNroOrigen.Location = new System.Drawing.Point(347, 54);
+            this.txtNroOrigen.Location = new System.Drawing.Point(339, 88);
             this.txtNroOrigen.Name = "txtNroOrigen";
             this.txtNroOrigen.Size = new System.Drawing.Size(231, 23);
             this.txtNroOrigen.TabIndex = 14;
@@ -178,12 +180,13 @@ namespace _40_CentralitaPolimorfica
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(198, 172);
+            this.btnSalir.Location = new System.Drawing.Point(190, 206);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(121, 92);
             this.btnSalir.TabIndex = 15;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnMarcarAsterico
             // 
@@ -226,7 +229,7 @@ namespace _40_CentralitaPolimorfica
             this.gboxPanel.Controls.Add(this.btnMarcar7);
             this.gboxPanel.Controls.Add(this.btnMarcar8);
             this.gboxPanel.Controls.Add(this.btnMarcar9);
-            this.gboxPanel.Location = new System.Drawing.Point(2, 41);
+            this.gboxPanel.Location = new System.Drawing.Point(-6, 75);
             this.gboxPanel.Name = "gboxPanel";
             this.gboxPanel.Size = new System.Drawing.Size(190, 240);
             this.gboxPanel.TabIndex = 19;
@@ -237,7 +240,7 @@ namespace _40_CentralitaPolimorfica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 331);
+            this.ClientSize = new System.Drawing.Size(590, 372);
             this.Controls.Add(this.gboxPanel);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.txtNroOrigen);

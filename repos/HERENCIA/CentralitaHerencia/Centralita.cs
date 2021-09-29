@@ -37,7 +37,6 @@ namespace Entidades
             {
                 return this.CalcularGanancia(TipoLlamada.Local);
             }
-
         }
         public float GananciasPorProvincial
         {
@@ -149,7 +148,7 @@ namespace Entidades
         /// <returns>Retorna la centralita modificada o no</returns>
         public static Centralita operator +(Centralita c, LLamada nuevaLlamada)
         {
-            if(c != nuevaLlamada)
+            if(c is not null && nuevaLlamada is not null && c != nuevaLlamada)
             {
                 c.AgregarLlamada(nuevaLlamada);
             }

@@ -1,7 +1,7 @@
 ﻿
 namespace _40_CentralitaPolimorfica
 {
-    partial class FormFacturacion
+    partial class FormMostrar
     {
         /// <summary>
         /// Required designer variable.
@@ -48,6 +48,7 @@ namespace _40_CentralitaPolimorfica
             this.Controls.Add(this.rtxtbFacturacion);
             this.Name = "FormFacturacion";
             this.Text = "FormFacturacion";
+            this.Load += new System.EventHandler(this.FormFacturacion_Load);
             this.ResumeLayout(false);
 
         }
