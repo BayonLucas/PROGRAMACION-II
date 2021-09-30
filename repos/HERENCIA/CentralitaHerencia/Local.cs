@@ -44,7 +44,7 @@ namespace Entidades
         {
             StringBuilder aux = new StringBuilder();
             aux.Append(base.Mostrar());
-            aux.Append(this.CostoLlamada.ToString());
+            aux.AppendFormat("Costo LLamada: {0}\n",this.CostoLlamada.ToString());
             return aux.ToString();
         }
         #endregion

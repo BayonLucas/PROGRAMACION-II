@@ -53,10 +53,10 @@ namespace Entidades
         }
         protected override string Mostrar()
         {
-            StringBuilder aux = new StringBuilder();
+            StringBuilder aux = new StringBuilder();            
             aux.Append(base.Mostrar());
-            aux.Append(this.franjaHoraria);
-            aux.Append(this.CostoLlamada.ToString());
+            aux.AppendFormat("Franja Horaria: {0}\n",this.franjaHoraria.ToString());
+            aux.AppendFormat("Costo LLamada: {0}\n",this.CostoLlamada.ToString());
             return aux.ToString();
         }
         #endregion

@@ -95,9 +95,11 @@ namespace Entidades
         {
             StringBuilder aux = new StringBuilder();
             aux.AppendLine(string.Format(("Razon social : {0}"), this.razonSocial));
+            
             aux.AppendLine(string.Format("Ganancias por Total {0}", this.GananciasPorTotal));
             aux.AppendLine(string.Format("Ganancias por Local{0}", this.GananciasPorLocal));
-            aux.AppendLine(string.Format("Ganacias por provincial{0}", this.GananciasPorProvincial));  
+            aux.AppendLine(string.Format("Ganacias por provincial{0}", this.GananciasPorProvincial));
+            aux.AppendLine("**********************************************************************");
             foreach (LLamada item in this.Llamadas)
             {
                 aux.AppendFormat("\nLLamada {0} {1}",item.GetType(), item.ToString());                

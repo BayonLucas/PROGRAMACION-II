@@ -54,9 +54,10 @@ namespace Entidades
         protected virtual string Mostrar()
         {
             StringBuilder aux = new StringBuilder();
-            aux.AppendFormat("Duracion: {0} ", this.Duracion);
-            aux.AppendFormat("Nro Destino {0} ", this.NroDestino);
-            aux.AppendFormat("Nro Origen {0} ", this.NroOrigen);
+            aux.Append("---------------------------------------------------------------\n");
+            aux.AppendFormat("Duracion: {0} \n", this.Duracion);
+            aux.AppendFormat("Nro Destino :{0} \n", this.NroDestino);
+            aux.AppendFormat("Nro Origen :{0} \n", this.NroOrigen);
             return aux.ToString();
         }
         /// <summary>

@@ -17,7 +17,7 @@ namespace _40_CentralitaPolimorfica
         public FormMenu()
         {
             InitializeComponent();
-            miCentralita = new Centralita("Tuenti");
+            miCentralita = new Centralita("Tuentix");
     }
 
         private void btnGenerarLLamada_Click(object sender, EventArgs e)
@@ -42,6 +42,11 @@ namespace _40_CentralitaPolimorfica
         {
             FormMostrar formFacturacion = new FormMostrar(miCentralita, Entidades.LLamada.TipoLlamada.Provincial);
             formFacturacion.Show();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

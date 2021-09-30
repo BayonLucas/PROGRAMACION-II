@@ -62,14 +62,17 @@ namespace _40_CentralitaPolimorfica
 
             if (this.criterioFacturacion == LLamada.TipoLlamada.Todas)
             {
+                rtxtbFacturacion.Text += $"*******************************************************************";
                 rtxtbFacturacion.Text += $"Ganancia por todas las llamadas {this.centralita.GananciasPorTotal}";
             }
             else if (this.criterioFacturacion == LLamada.TipoLlamada.Local)
             {
+                rtxtbFacturacion.Text += $"*******************************************************************";
                 rtxtbFacturacion.Text += $"Ganancia por llamadas Locales {this.centralita.GananciasPorLocal}";
             }
             else
             {
+                rtxtbFacturacion.Text += $"*******************************************************************";
                 rtxtbFacturacion.Text += $"Ganancia por llamadas Provinciales {this.centralita.GananciasPorProvincial}";
             }
 
