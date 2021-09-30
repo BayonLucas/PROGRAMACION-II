@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SistemaOperativo
+namespace Entidades
 {
     public enum ESistemaOperativo {ANDROID,IOS};
 }

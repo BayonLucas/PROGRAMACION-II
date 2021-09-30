@@ -1,5 +1,4 @@
 ﻿using System;
-using SistemaOperativo;
 using System.Text;
 using System.Collections.Generic;
 namespace Entidades

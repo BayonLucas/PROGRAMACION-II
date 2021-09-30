@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
-using SistemaOperativo;
 namespace FormPrincipal
 {
     public partial class FormAndroid : Form
