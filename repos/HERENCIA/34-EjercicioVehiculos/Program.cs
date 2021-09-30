@@ -11,7 +11,9 @@ namespace _34_EjercicioVehiculos
             vh.Add(new Camion(4, 4,Colores.Azul,5, 5000));
             vh.Add(new Moto(2, 0, Colores.Negro, 8));
             vh.Add(new Automovil(4, 4, Colores.Gris, 6,5));
-
+            Moto miMotitoChorra = new VehiculoTerrestre(2,4, Colores.Gris);
+            VehiculoTerrestre miVehiculito = new Moto(2, 4, Colores.Gris, 4);
+            miVehiculito.Cilindrada;
             foreach (VehiculoTerrestre item in vh)
             {
                 if (item.GetType() == typeof(Camion))
