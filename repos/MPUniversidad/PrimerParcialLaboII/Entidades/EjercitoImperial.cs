@@ -75,6 +75,7 @@ namespace Entidades
                 if (soldado.Equals(item))
                 {
                     ejercito.Troopers.Remove(item);
+                    return ejercito;
                     //aux = item;
                 }
             }

@@ -16,7 +16,7 @@ namespace FormFabricaTroopers
         public FormEjercitoTroopers()
         {
             ejercitoImperial = new EjercitoImperial(10);
-            Troopper auxTrooperArena = new TrooperArena(Blaster.EC17);
+            Troopper auxTrooperArena = new TrooperArena(Blaster.EC17);            
             ejercitoImperial += auxTrooperArena;
             InitializeComponent();
         }
@@ -30,53 +30,70 @@ namespace FormFabricaTroopers
         }
         private void FormEjercitoTroopers_Load(object sender, EventArgs e)
         {
+            cmbBlaster.DataSource = Enum.GetValues(typeof(Blaster));
             RefrescarEjercito();
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(cmbTipo.SelectedItem.ToString()))
+            if(cmbTipo.SelectedItem is not null && !string.IsNullOrWhiteSpace(cmbTipo.SelectedItem.ToString()))
             {
                 string auxTipo = cmbTipo.SelectedItem.ToString();
+                Troopper auxTrooper = null;
                 switch (auxTipo)
                 {
-                    case "Tropper Arena":                        
-                        Troopper auxTrooperArena = new TrooperArena(Blaster.EC17);
-                        this.ejercitoImperial += auxTrooperArena;
+                    case "Tropper Arena":
+                        if(cmbBlaster.SelectedItem is not null && (Blaster)cmbBlaster.SelectedItem != Blaster.EC17)
+                        {
+                            auxTrooper = new TrooperArena((Blaster)cmbBlaster.SelectedItem);
+                        }
+                        else
+                        {
+                            auxTrooper = new TrooperArena(Blaster.EC17);
+                        }
                         break;
                     case "Tropper Asalto":
-                        
-                        Troopper auxTrooperAsalto = new TrooperAsalto(Blaster.E11);
-                        this.ejercitoImperial += auxTrooperAsalto;
+                        if (cmbBlaster.SelectedItem is not null && (Blaster)cmbBlaster.SelectedItem != Blaster.E11)
+                        {
+                            auxTrooper = new TrooperAsalto((Blaster)cmbBlaster.SelectedItem);
+                        }
+                        else
+                        {
+                            auxTrooper = new TrooperArena(Blaster.E11);
+                        }
                         break;
                     case "Tropper Explorador":
-                        
-                        Troopper auxTrooperExplorador = new TrooperExplorador("Moto");
-                        this.ejercitoImperial += auxTrooperExplorador;
+                        auxTrooper = new TrooperExplorador("Moto");                        
                         break;
                 }
-                RefrescarEjercito();
+                if(auxTrooper != null)
+                {                    
+                    auxTrooper.Esclon = chkEsClon.Checked;
+                    this.ejercitoImperial += auxTrooper;
+                    RefrescarEjercito();
+                }                
             }    
         }
-
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            string auxTipo = cmbTipo.SelectedText;
-            Troopper auxNuevoTrooper = null;
-            switch (auxTipo)
+            if(cmbTipo.SelectedItem is not null)
             {
-                case "Tropper Arena":
-                    auxNuevoTrooper = new TrooperArena(Blaster.EC17);                    
-                    break;
-                case "Tropper Asalto":
-                    auxNuevoTrooper = new TrooperAsalto(Blaster.E11);
-                    break;
-                case "Tropper Explorador":
-                    auxNuevoTrooper = new TrooperExplorador("Moto");
-                    break;
+                string auxTipo = cmbTipo.SelectedItem.ToString();
+                Troopper auxNuevoTrooper = null;
+                switch (auxTipo)
+                {
+                    case "Tropper Arena":
+                        auxNuevoTrooper = new TrooperArena(Blaster.EC17);                    
+                        break;
+                    case "Tropper Asalto":
+                        auxNuevoTrooper = new TrooperAsalto(Blaster.E11);
+                        break;
+                    case "Tropper Explorador":
+                        auxNuevoTrooper = new TrooperExplorador("Moto");
+                        break;
+                }
+                this.ejercitoImperial = this.ejercitoImperial - auxNuevoTrooper;
+                RefrescarEjercito();
             }
-            this.ejercitoImperial = this.ejercitoImperial - auxNuevoTrooper;
-            RefrescarEjercito();
         }
     }
 }

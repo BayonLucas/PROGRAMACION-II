@@ -13,7 +13,6 @@ namespace Entidades
 
         protected Blaster armamento;
         protected bool esClon;
-
         #region Constructores
         public Troopper(Blaster armamento)
         {
@@ -91,35 +90,7 @@ namespace Entidades
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            string auxTipoTrooper = string.Empty;
-            string auxObj = string.Empty; ;
-            if (this.GetType() == typeof(TrooperArena))
-            {
-                auxTipoTrooper = "Trooper de Arena";
-            }
-            else if (this.GetType() == typeof(TrooperAsalto))
-            {
-                auxTipoTrooper = "Trooper de Asalto";
-            }
-            else if (this.GetType() == typeof(TrooperExplorador))
-            {
-                auxTipoTrooper = "Trooper Explorador";
-            }
-
-            if (obj.GetType() == typeof(TrooperArena))
-            {
-                auxObj = "Trooper de Arena";
-            }
-            else if (obj.GetType() == typeof(TrooperAsalto))
-            {
-                auxObj = "Trooper de Asalto";
-            }
-            else if (obj.GetType() == typeof(TrooperExplorador))
-            {
-                auxObj = "Trooper Explorador";
-            }
-            return auxTipoTrooper == auxObj;
-
+            return this.GetType() == obj.GetType();
         }
         #endregion
     }
