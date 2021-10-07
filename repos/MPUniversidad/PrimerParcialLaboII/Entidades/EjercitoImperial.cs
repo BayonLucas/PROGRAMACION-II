@@ -67,18 +67,17 @@ namespace Entidades
         /// <returns>Se retornará el ejército modificado.</returns>
         public static EjercitoImperial operator -(EjercitoImperial ejercito, Troopper soldado)
         {
-
-
-            //Troopper aux = null;
-            foreach (Troopper item in ejercito.Troopers)
+            if(soldado != null)
             {
-                if (soldado.Equals(item))
+                foreach (Troopper item in ejercito.Troopers)
                 {
-                    ejercito.Troopers.Remove(item);
-                    return ejercito;
-                    //aux = item;
+                    if (soldado.Equals(item))
+                    {
+                        ejercito.Troopers.Remove(item);
+                        return ejercito;
+                    }
                 }
-            }
+            } 
             return ejercito;
         }
 

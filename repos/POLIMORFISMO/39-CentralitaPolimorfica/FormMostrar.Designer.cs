@@ -1,5 +1,5 @@
 ﻿
-namespace _40_CentralitaPolimorfica
+namespace _41_CentralitaExcepciones
 {
     partial class FormMostrar
     {

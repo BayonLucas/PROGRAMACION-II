@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _40_CentralitaPolimorfica
+namespace _41_CentralitaExcepciones
 {
     static class Program
     {

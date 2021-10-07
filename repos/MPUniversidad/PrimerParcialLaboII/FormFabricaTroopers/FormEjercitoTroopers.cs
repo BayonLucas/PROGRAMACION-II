@@ -58,7 +58,7 @@ namespace FormFabricaTroopers
                         }
                         else
                         {
-                            auxTrooper = new TrooperArena(Blaster.E11);
+                            auxTrooper = new TrooperAsalto(Blaster.E11);
                         }
                         break;
                     case "Tropper Explorador":
@@ -67,7 +67,7 @@ namespace FormFabricaTroopers
                 }
                 if(auxTrooper != null)
                 {                    
-                    auxTrooper.Esclon = chkEsClon.Checked;
+                    auxTrooper.EsClon = chkEsClon.Checked;
                     this.ejercitoImperial += auxTrooper;
                     RefrescarEjercito();
                 }                
@@ -91,7 +91,7 @@ namespace FormFabricaTroopers
                         auxNuevoTrooper = new TrooperExplorador("Moto");
                         break;
                 }
-                this.ejercitoImperial = this.ejercitoImperial - auxNuevoTrooper;
+                this.ejercitoImperial -= auxNuevoTrooper;
                 RefrescarEjercito();
             }
         }

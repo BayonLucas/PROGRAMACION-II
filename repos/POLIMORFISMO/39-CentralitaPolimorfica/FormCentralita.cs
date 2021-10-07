@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
-namespace _40_CentralitaPolimorfica
+namespace _41_CentralitaExcepciones
 {
     
     public partial class FormMenu : Form

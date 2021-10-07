@@ -17,7 +17,7 @@ C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\obj\Debug\net5
 C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\obj\Debug\net5.0-windows\40-CentralitaPolimorfica.genruntimeconfig.cache
 C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\bin\Debug\net5.0-windows\Entidades.dll
 C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\bin\Debug\net5.0-windows\Entidades.pdb
-C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\obj\Debug\net5.0-windows\_40_CentralitaPolimorfica.FormMenu.resources
-C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\obj\Debug\net5.0-windows\_40_CentralitaPolimorfica.FormLlamador.resources
 C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\obj\Debug\net5.0-windows\40-CentralitaPolimorfica.csproj.CopyComplete
-C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\obj\Debug\net5.0-windows\_40_CentralitaPolimorfica.FormMostrar.resources
+C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\obj\Debug\net5.0-windows\_41_CentralitaExcepciones.FormMenu.resources
+C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\obj\Debug\net5.0-windows\_41_CentralitaExcepciones.FormLlamador.resources
+C:\Users\pedro\source\repos\POLIMORFISMO\39-CentralitaPolimorfica\obj\Debug\net5.0-windows\_41_CentralitaExcepciones.FormMostrar.resources

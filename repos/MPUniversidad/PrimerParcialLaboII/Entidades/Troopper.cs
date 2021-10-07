@@ -17,12 +17,11 @@ namespace Entidades
         public Troopper(Blaster armamento)
         {
             this.armamento = armamento;
-            this.esClon = false;
         }
         public Troopper(Blaster armamento, bool esClon)
             :this(armamento)
         {
-            this.esClon = esClon;
+            this.EsClon = esClon;
         }
         #endregion
         #region Propiedades
@@ -34,7 +33,7 @@ namespace Entidades
             }
         }
         public abstract string Tipo { get; }
-        public bool Esclon
+        public bool EsClon
         {
             get
             {
@@ -48,38 +47,18 @@ namespace Entidades
         #endregion
         #region Metodos
         /// <summary>
-        /// InfoTrooper retornará la información del soldado con el siguiente formato: "[Tipo] armado con 
-        ///[Armamento], [SI/NO] es clone." Utilizar el método Format de String para lograrlo.
+        /// InfoTrooper retornará la información del soldado con el siguiente formato:
+        /// "[Tipo] armado con [Armamento], [SI/NO] es clone." Utilizar el método Format de String para lograrlo.
         /// </summary>
         /// <returns></returns>
         public virtual string InfoTrooper()
         {
-            StringBuilder aux = new();
-            string auxEsClon;
-            string auxTipoTrooper = string.Empty;
-            if(this.Esclon == true)
+            string esClon = "NO";
+            if (this.EsClon)
             {
-                auxEsClon = "SI";
+                esClon = "SI";
             }
-            else
-            {
-                auxEsClon = "NO";
-            }
-            object Trooper = this.GetType();
-            if (this.GetType() == typeof(TrooperArena))
-            {
-                auxTipoTrooper = "Trooper de Arena";
-            }
-            else if (this.GetType() == typeof(TrooperAsalto))
-            {
-                auxTipoTrooper = "Trooper de Asalto";
-            }
-            else if (this.GetType() == typeof(TrooperExplorador))
-            {
-                auxTipoTrooper = "Trooper Explorador";
-            }
-                aux.AppendFormat("\n{0} armado con {1}, {2} es clone.", auxTipoTrooper, this.Armamento.ToString(), auxEsClon);
-            return aux.ToString();
+            return String.Format("{0} armado con una {1}, {2} es clone.", this.Tipo, this.Armamento, esClon);
         }
         #endregion
         #region Sobrecarga Equals
@@ -90,7 +69,15 @@ namespace Entidades
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            return this.GetType() == obj.GetType();
+            if((obj == null))
+            {
+                return false;
+            }
+            else if(this.GetType().Equals(obj.GetType()))
+            {
+                return true;
+            }
+            return false;
         }
         #endregion
     }

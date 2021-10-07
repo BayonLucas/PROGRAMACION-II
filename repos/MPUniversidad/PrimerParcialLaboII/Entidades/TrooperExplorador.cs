@@ -17,7 +17,7 @@ namespace Entidades
         #region Constructor
         public TrooperExplorador(string vehiculo):base(Blaster.EC17)
         {
-            this.vehiculo = vehiculo;
+            this.Vehiculo = vehiculo;
         }
         #endregion
         #region Propiedades
@@ -56,6 +56,10 @@ namespace Entidades
         }
         #endregion
         #region Metodo
+        /// <summary>
+        /// InfoTrooper informará todos sus datos y agregará sobre su vehículo: " – Vehículo: [Vehiculo]".
+        /// </summary>
+        /// <returns></returns>
         public override string InfoTrooper()
         {
             StringBuilder aux = new();
