@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using Entidades;
 namespace FormFabricaTroopers
 {
-    public partial class FormEjercitoTroopers : Form
+    public partial class frmPpal : Form
     {
         private EjercitoImperial ejercitoImperial;
-        public FormEjercitoTroopers()
+        public frmPpal()
         {
             ejercitoImperial = new EjercitoImperial(10);
             Troopper auxTrooperArena = new TrooperArena(Blaster.EC17);            
@@ -37,9 +37,8 @@ namespace FormFabricaTroopers
         {
             if(cmbTipo.SelectedItem is not null && !string.IsNullOrWhiteSpace(cmbTipo.SelectedItem.ToString()))
             {
-                string auxTipo = cmbTipo.SelectedItem.ToString();
                 Troopper auxTrooper = null;
-                switch (auxTipo)
+                switch (cmbTipo.SelectedItem.ToString())
                 {
                     case "Tropper Arena":
                         if(cmbBlaster.SelectedItem is not null && (Blaster)cmbBlaster.SelectedItem != Blaster.EC17)

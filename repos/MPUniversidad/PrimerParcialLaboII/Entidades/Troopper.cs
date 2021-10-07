@@ -19,13 +19,13 @@ namespace Entidades
             this.armamento = armamento;
         }
         public Troopper(Blaster armamento, bool esClon)
-            :this(armamento)
+            : this(armamento)
         {
             this.EsClon = esClon;
         }
         #endregion
         #region Propiedades
-        public Blaster Armamento 
+        public Blaster Armamento
         {
             get
             {
@@ -69,11 +69,11 @@ namespace Entidades
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            if((obj == null))
+            if ((obj == null))
             {
                 return false;
             }
-            else if(this.GetType().Equals(obj.GetType()))
+            else if (this.GetType().Equals(obj.GetType()))
             {
                 return true;
             }

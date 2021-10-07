@@ -6,7 +6,6 @@ C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTrooper
 C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\bin\Debug\net5.0-windows\ref\FormFabricaTroopers.dll
 C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\bin\Debug\net5.0-windows\FormFabricaTroopers.pdb
 C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\obj\Debug\net5.0-windows\FormFabricaTroopers.csproj.AssemblyReference.cache
-C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\obj\Debug\net5.0-windows\FormFabricaTroopers.FormEjercitoTroopers.resources
 C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\obj\Debug\net5.0-windows\FormFabricaTroopers.csproj.GenerateResource.cache
 C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\obj\Debug\net5.0-windows\FormFabricaTroopers.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\obj\Debug\net5.0-windows\FormFabricaTroopers.AssemblyInfoInputs.cache
@@ -20,3 +19,4 @@ C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTrooper
 C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\bin\Debug\net5.0-windows\Entidades.pdb
 C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\obj\Debug\net5.0-windows\FormFabricaTroopers.csproj.CopyComplete
 C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\obj\Debug\net5.0-windows\FormFabricaTroopers.Properties.Resources.resources
+C:\Users\pedro\source\repos\MPUniversidad\PrimerParcialLaboII\FormFabricaTroopers\obj\Debug\net5.0-windows\FormFabricaTroopers.frmPpal.resources

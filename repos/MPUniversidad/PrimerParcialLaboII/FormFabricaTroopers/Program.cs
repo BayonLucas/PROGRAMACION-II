@@ -17,7 +17,7 @@ namespace FormFabricaTroopers
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormEjercitoTroopers());
+            Application.Run(new frmPpal());
         }
     }
 }
