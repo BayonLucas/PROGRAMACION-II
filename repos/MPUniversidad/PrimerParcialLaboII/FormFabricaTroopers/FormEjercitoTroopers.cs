@@ -16,8 +16,8 @@ namespace FormFabricaTroopers
         public frmPpal()
         {
             ejercitoImperial = new EjercitoImperial(10);
-            Troopper auxTrooperArena = new TrooperArena(Blaster.EC17);            
-            ejercitoImperial += auxTrooperArena;
+            Troopper auxTrooperAsalto = new TrooperAsalto(Blaster.EC17);            
+            ejercitoImperial += auxTrooperAsalto;
             InitializeComponent();
         }
         private void RefrescarEjercito()
@@ -66,7 +66,10 @@ namespace FormFabricaTroopers
                 }
                 if(auxTrooper != null)
                 {                    
-                    auxTrooper.EsClon = chkEsClon.Checked;
+                    if(auxTrooper.GetType() != typeof(TrooperAsalto))
+                    {
+                        auxTrooper.EsClon = chkEsClon.Checked;
+                    }                    
                     this.ejercitoImperial += auxTrooper;
                     RefrescarEjercito();
                 }                
@@ -89,7 +92,7 @@ namespace FormFabricaTroopers
                     case "Tropper Explorador":
                         auxNuevoTrooper = new TrooperExplorador("Moto");
                         break;
-                }
+                }                
                 this.ejercitoImperial -= auxNuevoTrooper;
                 RefrescarEjercito();
             }

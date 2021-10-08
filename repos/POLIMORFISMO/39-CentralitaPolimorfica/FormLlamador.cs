@@ -38,28 +38,57 @@ namespace _41_CentralitaExcepciones
         }
         private void btnLlamar_Click(object sender, EventArgs e)
         {
-            Random auxRandom = new Random();
-            float auxDuracion = auxRandom.Next(1,50);
-            LLamada auxLlamada;
-            //Si la llamada comienza con #, es Provincial.
-            Provincial.Franja auxFranja;
-            if(!String.IsNullOrWhiteSpace(txtNroDestino.Text))
+            try
             {
-                if (txtNroDestino.Text.First() == '#')       
+                Random auxRandom = new Random();
+                float auxDuracion = auxRandom.Next(1, 50);
+                LLamada auxLlamada;
+                //Si la llamada comienza con #, es Provincial.
+                Provincial.Franja auxFranja;
+                if (!String.IsNullOrWhiteSpace(txtNroDestino.Text))
                 {
-                    auxLlamada = new Provincial(this.txtNroOrigen.Text, 
-                        (Provincial.Franja)cmbFranja.SelectedItem,
-                        auxDuracion, this.txtNroDestino.Text);  
+                    if (txtNroDestino.Text.First() == '#')
+                    {
+                        auxLlamada = new Provincial(this.txtNroOrigen.Text,
+                            (Provincial.Franja)cmbFranja.SelectedItem,
+                            auxDuracion, this.txtNroDestino.Text);
+                    }
+                    else
+                    {
+                        //Es local
+                        float costo = auxRandom.Next(5, 56);
+                        costo /= 100;
+                        cmbFranja.Enabled = false;
+                        auxLlamada = new Local(this.txtNroOrigen.Text, auxDuracion, this.txtNroDestino.Text, costo);
+                    }
+                    throw new CentralitaExcepcion("aaa","FormLlamada","btnLlamarClick",new Exception("Hola juan carlos"));
+                    centralita += auxLlamada;                    
                 }
-                else
+            }
+            catch (CentralitaExcepcion errorLlamadaRepetida)
+            {                
+                StringBuilder aux = new StringBuilder();
+                aux.AppendLine(errorLlamadaRepetida.Message);
+                aux.AppendLine(errorLlamadaRepetida.NombreClase);
+                aux.AppendLine(errorLlamadaRepetida.NombreMetodo);
+                Exception exInner = errorLlamadaRepetida.InnerException;
+                while (exInner != null)
                 {
-                    //Es local
-                    float costo = auxRandom.Next(5, 56);
-                    costo /= 100;                
-                    cmbFranja.Enabled = false;
-                    auxLlamada = new Local(this.txtNroOrigen.Text, auxDuracion, this.txtNroDestino.Text,costo);
+                    aux.AppendLine(exInner.Message);
+                    exInner = exInner.InnerException;
                 }
-                centralita += auxLlamada;
+                MessageBox.Show(aux.ToString());
+            }
+            catch (Exception eGeneral)
+            {
+                StringBuilder aux = new StringBuilder();
+                Exception exInner = eGeneral.InnerException;
+                while (exInner != null)
+                {
+                    aux.AppendLine(exInner.Message);
+                    exInner = exInner.InnerException;
+                }
+                MessageBox.Show(aux.ToString());
             }
         }
 

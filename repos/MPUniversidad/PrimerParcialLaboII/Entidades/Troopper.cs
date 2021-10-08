@@ -14,15 +14,25 @@ namespace Entidades
         protected Blaster armamento;
         protected bool esClon;
         #region Constructores
-        public Troopper(Blaster armamento)
+        //public Troopper(Blaster armamento)
+        //{
+        //    this.armamento = armamento;
+        //}
+        //public Troopper(Blaster armamento, bool esClon)
+        //    : this(armamento)
+        //{
+        //    this.EsClon = esClon;
+        //}
+        #region version alternativa
+        public Troopper(Blaster armamento):this(armamento,false)
         {
-            this.armamento = armamento;
         }
         public Troopper(Blaster armamento, bool esClon)
-            : this(armamento)
         {
+            this.armamento = armamento;
             this.EsClon = esClon;
         }
+        #endregion
         #endregion
         #region Propiedades
         public Blaster Armamento
@@ -69,6 +79,9 @@ namespace Entidades
         /// <returns></returns>
         public override bool Equals(object obj)
         {
+            return (this.GetType() == obj.GetType());
+            #region Alternativa
+                        /*
             if ((obj == null))
             {
                 return false;
@@ -78,6 +91,9 @@ namespace Entidades
                 return true;
             }
             return false;
+            */
+            #endregion
+
         }
         #endregion
     }

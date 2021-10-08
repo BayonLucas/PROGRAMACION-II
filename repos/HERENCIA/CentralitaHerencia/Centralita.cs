@@ -150,11 +150,21 @@ namespace Entidades
         /// <returns>Retorna la centralita modificada o no</returns>
         public static Centralita operator +(Centralita c, LLamada nuevaLlamada)
         {
-            if(c is not null && nuevaLlamada is not null && c != nuevaLlamada)
+            // b.En el operador + de Centralita, lanzar la excepción CentralitaExcepction
+            // en el caso de que la llamada se encuentre registrada en el sistema.
+            // c.Capturar dicha excepción tanto en la versión para Consola como en la de Formularios y
+            //mostrar el mensaje de forma “amigable” al usuario.
+            if(c == nuevaLlamada)
+            {
+                throw new CentralitaExcepcion("La llamada se encuentre registrada en el sistema",
+                    "Centralita","sobrecarga +");
+            }
+            if (c is not null && nuevaLlamada is not null && c != nuevaLlamada)
             {
                 c.AgregarLlamada(nuevaLlamada);
-            }
-            return c;
+                    
+            }                
+            return c;            
         }
         #endregion
         #region Override ToString()
