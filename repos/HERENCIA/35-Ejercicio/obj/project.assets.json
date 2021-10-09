@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\source\\repos\\HERENCIA\\35-Ejercicio\\36-Ejercicio.csproj",
-      "projectName": "36-Ejercicio",
-      "projectPath": "C:\\Users\\pedro\\source\\repos\\HERENCIA\\35-Ejercicio\\36-Ejercicio.csproj",
+      "projectUniqueName": "C:\\Users\\pedro\\source\\repos\\HERENCIA\\35-Ejercicio\\36-EjercicioEjercicioVehiculos.csproj",
+      "projectName": "36-EjercicioEjercicioVehiculos",
+      "projectPath": "C:\\Users\\pedro\\source\\repos\\HERENCIA\\35-Ejercicio\\36-EjercicioEjercicioVehiculos.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\pedro\\source\\repos\\HERENCIA\\35-Ejercicio\\obj\\",
       "projectStyle": "PackageReference",
