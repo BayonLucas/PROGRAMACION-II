@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\Excepciones.csproj", "{6E5FC8EC-095F-4B02-B468-108DA728F60B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excepciones", "Excepciones\Excepciones.csproj", "{6E5FC8EC-095F-4B02-B468-108DA728F60B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{E7B4E2B2-31DB-42E8-9E8E-5476BF9B06F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{E7B4E2B2-31DB-42E8-9E8E-5476BF9B06F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtrapameSiPuedes", "AtrapameSiPuedes\AtrapameSiPuedes.csproj", "{1F5D1767-0913-43B6-B82E-80990EECA000}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E7B4E2B2-31DB-42E8-9E8E-5476BF9B06F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7B4E2B2-31DB-42E8-9E8E-5476BF9B06F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7B4E2B2-31DB-42E8-9E8E-5476BF9B06F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F5D1767-0913-43B6-B82E-80990EECA000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F5D1767-0913-43B6-B82E-80990EECA000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F5D1767-0913-43B6-B82E-80990EECA000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F5D1767-0913-43B6-B82E-80990EECA000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

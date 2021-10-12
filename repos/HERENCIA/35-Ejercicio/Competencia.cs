@@ -104,43 +104,66 @@ namespace _36_Ejercicio
         }
         public static bool operator +(Competencia c, VehiculoDeCarrera v)
         {
-            if(c.competidores.Count < c.CantidadCompetidores && c != v)        //si hay espacio y el competidor no forma parte de la lista...
+            //b.La excepción CompetenciaNoDisponibleExcepcion será lanzada dentro de == de Competencia y Vehículo con el mensaje "El vehículo no corresponde a la competencia",
+            //capturada dentro del operador + y vuelta a lanzar como una nueva excepción con el mensaje "Competencia incorrecta".
+            //Utilizar innerExcepcion para almacenar la excepción original.
+            //c.Modificar el Main para agregar un Vehículo que no corresponda con la competencia,
+            //capturar la excepción y mostrar el error por pantalla.
+            try
             {
-                c.competidores.Add(v);
-                v.EnCompetencia = true;
-                v.VueltasRestantes = (c.CantidadVueltas);
-                Random auxRandom = new Random();
-                int auxCombustible = auxRandom.Next((int)15, (int)100);
-                v.CantidadCombustible = ((short)auxCombustible);
-                return true;
+                if (c.competidores.Count < c.CantidadCompetidores && c != v)        //si hay espacio y el competidor no forma parte de la lista...
+                {
+                    c.competidores.Add(v);
+                    v.EnCompetencia = true;
+                    v.VueltasRestantes = (c.CantidadVueltas);
+                    Random auxRandom = new Random();
+                    int auxCombustible = auxRandom.Next((int)15, (int)100);
+                    v.CantidadCombustible = ((short)auxCombustible);
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (CompetenciaNoDisponibleException e)
+            {
+                //throw new CompetenciaNoDisponibleException("Excepcion 2",e);
+                throw new CompetenciaNoDisponibleException("No se pudo agregar el vehiculo a la competencia", "Competencia", "Sobrecarga +", e);
+            }
+
         }
         #endregion
         #region Sobrecarga == & !=
         public static bool operator ==(Competencia c, VehiculoDeCarrera competidor)     
         {
 
-            /*g. Si la competencia es declarada del tipo CarreraMotoCross, sólo se podrán agregar vehículos
-                del tipo MotoCross.
-            Si la competencia es del tipo F1, sólo se podrán agregar objetos AutoF1.
-                Colocar dicha comparación dentro del == de la clase Competencia.      
-             */
-            //Comparo el tipo de competencia con el tipo de vehiculo
-            //                    == VehiculoDeCarrera 
-            if ((c.Tipo == tipoCompetencia.F1 && (competidor.GetType() == typeof(AutoF1))) ||
-                    (c.Tipo == tipoCompetencia.MotoCross && (competidor.GetType() == typeof(MotoCross))))
+            //g. Si la competencia es declarada del tipo CarreraMotoCross, sólo se podrán agregar vehículos
+            //    del tipo MotoCross.
+            //Si la competencia es del tipo F1, sólo se podrán agregar objetos AutoF1.
+            //    Colocar dicha comparación dentro del == de la clase Competencia.                   
+            //Comparo el tipo de competencia con el tipo de vehiculo == VehiculoDeCarrera 
+
+            //b.La excepción CompetenciaNoDisponibleExcepcion será lanzada dentro de == de Competencia y Vehículo con el mensaje "El vehículo no corresponde a la competencia",
+            //capturada dentro del operador +y vuelta a lanzar como una nueva excepción con el mensaje "Competencia incorrecta".
+            try
             {
-                foreach (VehiculoDeCarrera item in c.competidores)
+                if ((c.Tipo == tipoCompetencia.F1 && (competidor.GetType() == typeof(AutoF1))) ||
+                    (c.Tipo == tipoCompetencia.MotoCross && (competidor.GetType() == typeof(MotoCross))))
                 {
-                    if (item == competidor)
+                    foreach (VehiculoDeCarrera item in c.competidores)
                     {
-                        return true;
+                        if (item == competidor)
+                        {                            
+                            return true;
+                        }
                     }
+                    return false;
                 }
-                return false;
+                throw new CompetenciaNoDisponibleException("El vehículo no corresponde a la competencia","Competencia","Sobrecarga ==");
+                //throw new CompetenciaNoDisponibleException("Excepcion 1",null);
+            }
+            catch (CompetenciaNoDisponibleException)
+            {
+                throw;
             }            
-            return true;       //Si no coincide el tipo de competencia con el tipo de vehiculo, retorna true
         }
         public static bool operator !=(Competencia c, VehiculoDeCarrera v)
         {
