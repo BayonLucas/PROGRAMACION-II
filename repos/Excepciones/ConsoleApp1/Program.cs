@@ -10,7 +10,6 @@ namespace ConsoleApp1
             try
             {
                 OtraClase auxOtraClase = new OtraClase();
-
             }
             catch (MiExcepcion e)
             {
@@ -26,18 +25,17 @@ namespace ConsoleApp1
                 try
                 {
                     OtraClase c = new OtraClase();
-                    c.OtroMetodo();
+                    //c.OtroMetodo();
                 }
-                catch (MiExcepcion e)
+                catch (MiExcepcion excepcion)
                 {
-                    Exception ex = e;
+                    Exception ex = excepcion;
                     do
                     {
                         Console.WriteLine(ex.Message);
                         ex = ex.InnerException;
                     } while (!object.ReferenceEquals(ex, null));
                 }
-
             }
             Console.ReadKey();
         }

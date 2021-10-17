@@ -23,7 +23,6 @@ namespace Excepciones
             {
                 throw new MiExcepcion("Error recibido en Otra clase", e);
             }
-            
 
         }
     }

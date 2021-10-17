@@ -22,11 +22,9 @@ namespace Excepciones
             try
             {
                 miAtributoBooleano = miMetodoEstatico();
-
             }
             catch (DivideByZeroException)
             {
-
                 throw;
             }
         }
