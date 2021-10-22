@@ -74,7 +74,7 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("Tipo de objeto: {0}", this.GetType());
+            sb.AppendFormat("Tipo de objeto: {0}", this.GetType().Name);
             sb.AppendFormat("Color de escritura: {0}", ((IAcciones)this).Color);
             sb.AppendFormat("Nivel de tinta: {0}", ((IAcciones)this).UnidadesDeEscritura);
             return sb.ToString();
