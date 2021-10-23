@@ -70,6 +70,16 @@ namespace _36_Ejercicio
                 }
             }
         }
+        /// <summary>
+        /// Agregar una propiedad que haga pública la lista de Vehículos de Competencia.
+        /// </summary>
+        public List<VehiculoDeCarrera> Competidores
+        {
+            get
+            {
+                return this.competidores;
+            }
+        }
         #endregion
         #region MostrarDatos
         public string MostrarDatos()

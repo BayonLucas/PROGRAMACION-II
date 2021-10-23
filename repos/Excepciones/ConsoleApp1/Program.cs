@@ -15,13 +15,11 @@ namespace ConsoleApp1
             {
                 Exception exInner = e.InnerException;
                 Console.WriteLine(e.Message);
-
                 while (exInner != null)
                 {
                     Console.WriteLine(exInner.Message);
                     exInner = exInner.InnerException;
                 }
-
                 try
                 {
                     OtraClase c = new OtraClase();
