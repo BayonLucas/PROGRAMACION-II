@@ -15,11 +15,15 @@ namespace Entidades
 
         static Torneo()
         {
+            Torneo.nombreTorneo = "Copa Libertadores de Avellaneda";
             Torneo.fixture = new List<Fecha>();
             Torneo.ListaEquipos = new List<Equipo>();
+            CargarEquipos();
+            CargarPartidos();
         }
         private static void CargarEquipos()
         {
+            //Hardcodeo
             foreach (Equipo item in Torneo.listaEquipos)
             {
                 listaEquipos.Add(item);
@@ -36,17 +40,18 @@ namespace Entidades
         {
             foreach (Fecha item in Torneo.fixture)
             {
-                if(nroFecha == item.Id)
+                if (nroFecha == item.Id)
                 {
                     foreach (Partido auxItem in item.Partidos)
                     {
                         auxItem.SimularPartido();
                     }
+                    break;
                 }
             }
         }
         #region Propiedades
-        public static List<Equipo> ListaEquipos 
+        public static List<Equipo> ListaEquipos
         {
             get
             {
@@ -54,10 +59,10 @@ namespace Entidades
             }
             set
             {
-                if(value is not null)
+                if (value is not null)
                 {
                     Torneo.listaEquipos = value;
-                }                
+                }
             }
         }
         #endregion

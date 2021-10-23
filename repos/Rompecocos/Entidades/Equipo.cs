@@ -17,7 +17,7 @@ namespace Entidades
         {
             this.nombreEquipo = nombreEquipo;
             this.Entrenador = ent;
-            //Deberia instanciar la lista o asumo que viene instanciada si no no la asigno?
+            this.Estadistica = new Estadistica();
             this.ListaJugadores = listJug;
         }
         #region Propiedades
@@ -29,7 +29,7 @@ namespace Entidades
             }
             set
             {
-                if(value is not null && value.GetType() == typeof(Entrenador))
+                if(value is not null)
                 {
                     this.entrenador = value;
                 }
